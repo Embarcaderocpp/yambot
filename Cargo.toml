@@ -1,0 +1,13 @@
+[package]
+name = "yambot"
+version = "0.1.0"
+edition = "2021"
+description = "Rust-библиотека для создания ботов в Yandex Messenger (Яндекс 360 для бизнеса)"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Embarcaderocpp/yambot"
+
+[dependencies]
+reqwest = { version = "0.13", features = ["json", "rustls"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["full"] }
