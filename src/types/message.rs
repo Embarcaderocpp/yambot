@@ -4,13 +4,14 @@ use super::{BotRequest, Chat, File, Image, Sender};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Message {
+    #[serde(rename = "from")]          // ← ИСПРАВЛЕНО
     pub sender: Sender,
     pub chat: Chat,
     #[serde(default)]
     pub text: Option<String>,
     pub timestamp: i64,
-    pub message_id: String,
-    pub update_id: String,
+    pub message_id: i64,               // ← ИСПРАВЛЕНО
+    pub update_id: i64,                // ← ИСПРАВЛЕНО
     #[serde(default)]
     pub file: Option<File>,
     #[serde(default)]

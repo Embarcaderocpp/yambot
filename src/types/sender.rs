@@ -6,6 +6,9 @@ pub struct Sender {
     pub channel_login: Option<String>,
     #[serde(default)]
     pub display_name: Option<String>,
+    #[serde(rename = "robot")]         // ← ИСПРАВЛЕНО: в API поле "robot"
     #[serde(default)]
     pub is_bot: Option<bool>,
+    #[serde(default)]
+    pub id: Option<String>,            // ← ДОБАВЛЕНО: присутствует в реальном JSON
 }

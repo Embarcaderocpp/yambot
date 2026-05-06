@@ -14,18 +14,18 @@ pub trait Handler: Send + Sync + 'static {
 pub fn handler<F, Fut>(f: F) -> impl Handler
 where
     F: Fn(Bot, Update) -> Fut + Send + Sync + 'static,
-    Fut: std::future::Future<Output = Result<()>> + Send,
+    Fut: std::future::Future<Output = Result<()>> + Send + 'static, // ← ИЗМЕНЕНИЕ: + 'static
 {
     struct FnHandler<F, Fut>(F)
     where
         F: Fn(Bot, Update) -> Fut + Send + Sync + 'static,
-        Fut: std::future::Future<Output = Result<()>> + Send;
+        Fut: std::future::Future<Output = Result<()>> + Send + 'static;
 
     #[async_trait]
     impl<F, Fut> Handler for FnHandler<F, Fut>
     where
         F: Fn(Bot, Update) -> Fut + Send + Sync + 'static,
-        Fut: std::future::Future<Output = Result<()>> + Send,
+        Fut: std::future::Future<Output = Result<()>> + Send + 'static, // ← ИЗМЕНЕНИЕ: + 'static
     {
         async fn handle(&self, bot: &Bot, update: Update) -> Result<()> {
             (self.0)(bot.clone(), update).await

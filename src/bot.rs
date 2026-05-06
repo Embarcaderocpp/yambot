@@ -69,12 +69,22 @@ impl Bot {
         login: Option<&str>,
         text: impl Into<String>,
     ) -> Result<i64> {
-        self.send_text(SendTextRequest {
-            chat_id: chat_id.map(|s| s.to_string()),
-            login: login.map(|s| s.to_string()),
+        let mut req = SendTextRequest {
             text: text.into(),
-            ..Default::default() // для остальных полей
-        })
-            .await
+            ..Default::default()
+        };
+
+        // Гарантируем "exactly one" как требует API
+        match (chat_id, login) {
+            (Some(c), _) => req.chat_id = Some(c.to_string()), // chat_id в приоритете
+            (None, Some(l)) => req.login = Some(l.to_string()),
+            (None, None) => {
+                return Err(crate::error::YambotError::Unknown(
+                    "Не указан ни chat_id, ни login, ни user_id".to_string(),
+                ));
+            }
+        }
+
+        self.send_text(req).await
     }
 }

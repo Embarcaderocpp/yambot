@@ -12,10 +12,10 @@ pub(crate) struct Client {
 }
 
 #[derive(serde::Deserialize, Debug)]
-struct ApiResponse<T> {
+struct ApiResponse { // ← ИЗМЕНЕНИЕ: убрали generic <T> (был неиспользуем)
     ok: bool,
     #[serde(flatten)]
-    data: serde_json::Value, // всё остальное (updates, message_id и т.д.)
+    data: serde_json::Value,
     #[serde(default)]
     description: Option<String>,
 }
@@ -46,11 +46,13 @@ impl Client {
         B: Serialize + ?Sized,
         T: DeserializeOwned,
     {
-        let url = format!(
-            "{}{}",
-            self.config.base_url.trim_end_matches('/'),
-            if method.starts_with('/') { method } else { &format!("/{}", method) }
-        );
+        let base = self.config.base_url.trim_end_matches('/');
+        let path = if method.starts_with('/') { // ← ИЗМЕНЕНИЕ: избежали temporary value
+            method.to_string()
+        } else {
+            format!("/{}", method)
+        };
+        let url = format!("{}{}", base, path);
 
         let response = self
             .http
@@ -63,12 +65,10 @@ impl Client {
         self.handle_response(response).await
     }
 
-    /// Вспомогательный метод обработки ответа API
     async fn handle_response<T: DeserializeOwned>(&self, response: reqwest::Response) -> Result<T> {
         let status = response.status();
         let text = response.text().await.map_err(YambotError::Http)?;
 
-        // Если HTTP-статус не 2xx — сразу ошибка
         if !status.is_success() {
             return Err(YambotError::Unknown(format!(
                 "HTTP error {}: {}",
@@ -76,11 +76,9 @@ impl Client {
             )));
         }
 
-        let api_resp: ApiResponse<serde_json::Value> =
-            serde_json::from_str(&text).map_err(YambotError::Json)?;
+        let api_resp: ApiResponse = serde_json::from_str(&text).map_err(YambotError::Json)?;
 
         if api_resp.ok {
-            // Десериализуем данные напрямую (у Yandex нет обёртки "result")
             serde_json::from_value(api_resp.data).map_err(YambotError::Json)
         } else {
             Err(YambotError::Api {

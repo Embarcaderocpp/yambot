@@ -12,22 +12,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ef175a0-f187-4cad-89d4-a1cd063e333d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/types/requests.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bot.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/bot.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_echo_bot.rs" beforeDir="false" afterPath="$PROJECT_DIR$/examples/simple_echo_bot.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/client.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/error.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/error.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/events/dispatcher.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/dispatcher.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/events/handler.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/handler.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/events/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/bot_request.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/bot_request.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/message.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/message.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/requests.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/requests.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/sender.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/sender.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/update.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/update.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/user.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/user.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/token.txt" beforeDir="false" afterPath="$PROJECT_DIR$/token.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +57,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Cargo.Run.executor": "Debug",
+    "Cargo.Run simple_echo_bot.executor": "Run",
+    "Cargo.Run.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -82,7 +79,24 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Cargo.Run simple_echo_bot">
+    <configuration name="Run simple_echo_bot" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="run --package yambot --example simple_echo_bot" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="command" value="run --package yambot --bin yambot" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -100,6 +114,11 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo.Run simple_echo_bot" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
@@ -114,7 +133,7 @@
       <workItem from="1777485890449" duration="671000" />
       <workItem from="1778006500674" duration="487000" />
       <workItem from="1778007093700" duration="3104000" />
-      <workItem from="1778095717262" duration="5574000" />
+      <workItem from="1778095717262" duration="8381000" />
     </task>
     <servers />
   </component>

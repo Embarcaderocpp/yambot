@@ -6,6 +6,7 @@ authors = ["Your Name <you@example.com>"]
 description = "Библиотека для создания ботов в Yandex Messenger (yambot)"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/yourname/yambot"
+readme = "README.md"
 keywords = ["yandex", "messenger", "bot", "yambot", "api"]
 categories = ["api-bindings", "asynchronous"]
 
