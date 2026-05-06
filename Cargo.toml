@@ -2,12 +2,18 @@
 name = "yambot"
 version = "0.1.0"
 edition = "2021"
-description = "Rust-библиотека для создания ботов в Yandex Messenger (Яндекс 360 для бизнеса)"
+authors = ["Your Name <you@example.com>"]
+description = "Библиотека для создания ботов в Yandex Messenger (yambot)"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/Embarcaderocpp/yambot"
+repository = "https://github.com/yourname/yambot"
+keywords = ["yandex", "messenger", "bot", "yambot", "api"]
+categories = ["api-bindings", "asynchronous"]
 
 [dependencies]
-reqwest = { version = "0.13", features = ["json", "rustls"] }
+reqwest = { version = "0.13.3", features = ["json", "rustls"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tokio = { version = "1", features = ["full"] }
+thiserror = "2.0"
+async-trait = "0.1"
+futures-util = "0.3"
